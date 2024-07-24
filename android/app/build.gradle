@@ -24,8 +24,9 @@ if (flutterVersionName == null) {
 }
 
 android {
+    
     namespace = "com.example.weather_app"
-    compileSdk = 33
+    compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
