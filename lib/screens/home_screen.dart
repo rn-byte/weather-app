@@ -112,9 +112,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
 
                           Text(
-                            DateTime.now().hour < 12
+                            state.weather.date!.hour < 12
                                 ? 'Good Morning'
-                                : DateTime.now().hour < 18
+                                : state.weather.date!.hour < 18
                                     ? 'Good Afternoon'
                                     : 'Good Evening',
                             style: const TextStyle(
