@@ -110,9 +110,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             height: 8,
                           ),
-                          const Text(
-                            'Good Morning',
-                            style: TextStyle(
+
+                          Text(
+                            DateTime.now().hour < 12
+                                ? 'Good Morning'
+                                : DateTime.now().hour < 18
+                                    ? 'Good Afternoon'
+                                    : 'Good Evening',
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold),
