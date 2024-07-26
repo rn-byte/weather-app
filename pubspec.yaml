@@ -43,6 +43,9 @@ dependencies:
   bloc: ^8.1.4
   flutter_typeahead: ^5.2.0
 
+  freezed_annotation:
+  json_annotation:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -53,6 +56,10 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
+  
+  freezed:
+  build_runner:
+  json_serializable:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

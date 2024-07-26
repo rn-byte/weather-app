@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:weather_app/bloc/bloc/weather_bloc.dart';
+import 'package:weather_app/bloc/weather_bloc.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -311,6 +311,22 @@ class _HomeScreenState extends State<HomeScreen> {
                               )
                             ],
                           ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height * 0.06,
+                            child: ElevatedButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  '7 Days weather Forcasts',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600),
+                                )),
+                          )
                         ],
                       ),
                     );

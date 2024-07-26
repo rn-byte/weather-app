@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather/weather.dart';
 
-import '../../data/my_data.dart';
+import '../data/my_data.dart';
 
 part 'weather_event.dart';
 part 'weather_state.dart';
