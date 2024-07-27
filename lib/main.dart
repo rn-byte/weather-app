@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         builder: (context, snapshot) {
           print('snap data ${snapshot.data}');
           if (snapshot.hasData) {
+            print('snap location data ${snapshot.data}');
             return BlocProvider<WeatherBloc>(
               create: (context) =>
                   WeatherBloc()..add(FetchWeather(snapshot.data as Position)),

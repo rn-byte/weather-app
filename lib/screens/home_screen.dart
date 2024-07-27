@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/bloc/weather_bloc.dart';
+import 'package:weather_app/screens/widgets/elevated_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,7 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
       case 800 && <= 804:
         return Image.asset('assets/images/7.png');
       default:
-        return Image.asset('assets/images/7.png');
+        return Image.asset(
+          'assets/images/7.png',
+        );
     }
   }
 
@@ -40,6 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          ),
+        ],
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -122,6 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold),
                           ),
+
                           //Image.asset('assets/images/1.png'),
                           getWeatherIcon(state.weather.weatherConditionCode!),
                           Center(
@@ -312,20 +322,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           const SizedBox(
-                            height: 20,
+                            height: 30,
                           ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height * 0.06,
-                            child: ElevatedButton(
-                                onPressed: () {},
-                                child: const Text(
-                                  '7 Days weather Forcasts',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600),
-                                )),
+                          ButtonWidget(
+                            onPressed: () {},
                           )
                         ],
                       ),
