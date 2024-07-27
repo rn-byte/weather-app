@@ -1,5 +1,4 @@
-import 'package:equatable/equatable.dart';
-import 'package:weather_app/model/weather_model.dart';
+part of 'weather_search_bloc.dart';
 
 class WeatherSearchState extends Equatable {
   const WeatherSearchState();

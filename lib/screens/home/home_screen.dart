@@ -160,12 +160,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       '${state.weather.tempMin!.celsius!.round()} °C'),
                             ],
                           ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          ButtonWidget(
-                            onPressed: () {},
-                          )
                         ],
                       ),
                     );
