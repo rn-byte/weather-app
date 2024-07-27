@@ -4,8 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/bloc/weather_bloc/weather_bloc.dart';
-import 'package:weather_app/screens/widgets/elevated_button.dart';
-import 'package:weather_app/screens/widgets/search_icon_widget.dart';
+import 'package:weather_app/screens/home/widgets/align_widget.dart';
+import 'package:weather_app/screens/home/widgets/elevated_button.dart';
+import 'package:weather_app/screens/home/widgets/search_icon_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -61,17 +62,18 @@ class _HomeScreenState extends State<HomeScreen> {
           height: MediaQuery.of(context).size.height,
           child: Stack(
             children: [
-              Align(
-                alignment: const AlignmentDirectional(8, -0.3),
-                child: Container(
-                  height: 300,
-                  width: 300,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.deepPurple,
-                  ),
-                ),
-              ),
+              const AlignWidget(color: Colors.deepPurple, x: 8, y: -0.3),
+              // Align(
+              //   alignment: const AlignmentDirectional(8, -0.3),
+              //   child: Container(
+              //     height: 300,
+              //     width: 300,
+              //     decoration: const BoxDecoration(
+              //       shape: BoxShape.circle,
+              //       color: Colors.deepPurple,
+              //     ),
+              //   ),
+              // ),
               Align(
                 alignment: const AlignmentDirectional(-8, -0.3),
                 child: Container(

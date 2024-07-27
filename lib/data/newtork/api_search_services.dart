@@ -1,8 +1,8 @@
 import 'package:http/http.dart';
-import 'package:weather_app/Services/remote_services.dart';
+import 'package:weather_app/data/newtork/remote_services.dart';
 import 'package:weather_app/utils/app_url.dart';
 
-import '../data/my_data.dart';
+import '../my_data.dart';
 
 class ApiSearchServices extends RemoteServices {
   @override

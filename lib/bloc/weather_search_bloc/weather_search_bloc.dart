@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:bloc/bloc.dart';
-import 'package:weather_app/Services/api_search_services.dart';
+import 'package:weather_app/data/newtork/api_search_services.dart';
 import 'package:weather_app/bloc/weather_search_bloc/weather_search_event.dart';
 import 'package:weather_app/bloc/weather_search_bloc/weather_search_state.dart';
 import 'package:weather_app/model/weather_model.dart';
