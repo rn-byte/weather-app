@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:weather_app/bloc/weather_bloc.dart';
+import 'package:weather_app/bloc/weather_bloc/weather_bloc.dart';
 import 'package:weather_app/screens/widgets/elevated_button.dart';
+import 'package:weather_app/screens/widgets/search_icon_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -44,10 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          ),
+          SearchIconWidget(
+            onClicked: () {},
+          )
         ],
         centerTitle: true,
         backgroundColor: Colors.transparent,
