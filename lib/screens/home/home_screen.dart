@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/bloc/weather_bloc/weather_bloc.dart';
+import 'package:weather_app/screens/search_screen.dart/search_screen.dart';
 import 'widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,10 +22,15 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         actions: [
           SearchIconWidget(
-            onClicked: () {},
+            onClicked: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SearchScreen(),
+                  ));
+            },
           )
         ],
-        centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
         systemOverlayStyle:
