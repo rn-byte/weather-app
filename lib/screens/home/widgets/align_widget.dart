@@ -2,23 +2,27 @@ import 'package:flutter/material.dart';
 
 class AlignWidget extends StatelessWidget {
   final double x, y;
+  final double h, w;
   final Color color;
-  const AlignWidget({
-    super.key,
-    required this.color,
-    required this.x,
-    required this.y,
-  });
+  final BoxShape? shape;
+  const AlignWidget(
+      {super.key,
+      required this.color,
+      required this.x,
+      required this.y,
+      required this.h,
+      required this.w,
+      this.shape});
 
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: AlignmentDirectional(x, y),
       child: Container(
-        height: 300,
-        width: 300,
+        height: h,
+        width: w,
         decoration: BoxDecoration(
-          shape: BoxShape.circle,
+          shape: shape!,
           color: color,
         ),
       ),
