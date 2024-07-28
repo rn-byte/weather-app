@@ -72,95 +72,97 @@ class _HomeScreenState extends State<HomeScreen> {
                     return SizedBox(
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextWidget(
-                              txt: state.weather.areaName.toString(),
-                              fw: FontWeight.w400),
-                          const SizedBox(
-                            height: 8,
-                          ),
-                          TextWidget(
-                              txt: state.weather.date!.hour < 12
-                                  ? 'Good Morning'
-                                  : state.weather.date!.hour < 18
-                                      ? 'Good Afternoon'
-                                      : 'Good Evening',
-                              fontSize: 25,
-                              fw: FontWeight.bold),
-
-                          //Image.asset('assets/images/1.png'),
-                          WeatherImageWidget(
-                              code: state.weather.weatherConditionCode!),
-                          Center(
-                            child: TextWidget(
-                                txt:
-                                    '${state.weather.temperature!.celsius!.round()} °C',
-                                fontSize: 55,
-                                fw: FontWeight.w600),
-                          ),
-                          Center(
-                            child: TextWidget(
-                                txt: state.weather.weatherMain!.toUpperCase(),
-                                fontSize: 25,
-                                fw: FontWeight.w500),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Center(
-                            child: TextWidget(
-                                txt: DateFormat('EEEE dd ,')
-                                    .add_jm()
-                                    .format(state.weather.date!),
-                                // 'Friday 16, 09:41 am',
-                                fontSize: 16,
-                                fw: FontWeight.w300),
-                          ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              RowColumnWidget(
-                                  imageUrl: 'assets/images/11.png',
-                                  cTitleFirst: 'Sunrise',
-                                  cTitleSecond: DateFormat()
-                                      .add_jm()
-                                      .format(state.weather.sunrise!)),
-                              RowColumnWidget(
-                                  imageUrl: 'assets/images/12.png',
-                                  cTitleFirst: 'Sunset',
-                                  cTitleSecond: DateFormat()
-                                      .add_jm()
-                                      .format(state.weather.sunset!)),
-                            ],
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 5.0),
-                            child: Divider(
-                              color: Colors.grey,
-                              thickness: 0.3,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextWidget(
+                                txt: state.weather.areaName.toString(),
+                                fw: FontWeight.w400),
+                            const SizedBox(
+                              height: 8,
                             ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              RowColumnWidget(
-                                  imageUrl: 'assets/images/13.png',
-                                  cTitleFirst: 'Temp Max',
-                                  cTitleSecond:
-                                      '${state.weather.tempMax!.celsius!.round()} °C'),
-                              RowColumnWidget(
-                                  imageUrl: 'assets/images/14.png',
-                                  cTitleFirst: 'Temp Min',
-                                  cTitleSecond:
-                                      '${state.weather.tempMin!.celsius!.round()} °C'),
-                            ],
-                          ),
-                        ],
+                            TextWidget(
+                                txt: state.weather.date!.hour < 12
+                                    ? 'Good Morning'
+                                    : state.weather.date!.hour < 18
+                                        ? 'Good Afternoon'
+                                        : 'Good Evening',
+                                fontSize: 25,
+                                fw: FontWeight.bold),
+
+                            //Image.asset('assets/images/1.png'),
+                            WeatherImageWidget(
+                                code: state.weather.weatherConditionCode!),
+                            Center(
+                              child: TextWidget(
+                                  txt:
+                                      '${state.weather.temperature!.celsius!.round()} °C',
+                                  fontSize: 55,
+                                  fw: FontWeight.w600),
+                            ),
+                            Center(
+                              child: TextWidget(
+                                  txt: state.weather.weatherMain!.toUpperCase(),
+                                  fontSize: 25,
+                                  fw: FontWeight.w500),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Center(
+                              child: TextWidget(
+                                  txt: DateFormat('EEEE dd ,')
+                                      .add_jm()
+                                      .format(state.weather.date!),
+                                  // 'Friday 16, 09:41 am',
+                                  fontSize: 16,
+                                  fw: FontWeight.w300),
+                            ),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                RowColumnWidget(
+                                    imageUrl: 'assets/images/11.png',
+                                    cTitleFirst: 'Sunrise',
+                                    cTitleSecond: DateFormat()
+                                        .add_jm()
+                                        .format(state.weather.sunrise!)),
+                                RowColumnWidget(
+                                    imageUrl: 'assets/images/12.png',
+                                    cTitleFirst: 'Sunset',
+                                    cTitleSecond: DateFormat()
+                                        .add_jm()
+                                        .format(state.weather.sunset!)),
+                              ],
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 5.0),
+                              child: Divider(
+                                color: Colors.grey,
+                                thickness: 0.3,
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                RowColumnWidget(
+                                    imageUrl: 'assets/images/13.png',
+                                    cTitleFirst: 'Temp Max',
+                                    cTitleSecond:
+                                        '${state.weather.tempMax!.celsius!.round()} °C'),
+                                RowColumnWidget(
+                                    imageUrl: 'assets/images/14.png',
+                                    cTitleFirst: 'Temp Min',
+                                    cTitleSecond:
+                                        '${state.weather.tempMin!.celsius!.round()} °C'),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   } else {

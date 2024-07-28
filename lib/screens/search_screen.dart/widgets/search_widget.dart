@@ -14,10 +14,10 @@ class SearchWidget extends StatefulWidget {
 
 class _SearchWidgetState extends State<SearchWidget> {
   TextEditingController textEditingController = TextEditingController();
-  late WeatherSearchBloc weahterSearch;
+  late WeatherSearchBloc _weatherSearchBloc;
   @override
   void initState() {
-    weahterSearch = WeatherSearchBloc();
+    _weatherSearchBloc = WeatherSearchBloc();
     super.initState();
   }
 
@@ -26,6 +26,7 @@ class _SearchWidgetState extends State<SearchWidget> {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.7,
       child: BlocBuilder<WeatherSearchBloc, WeatherSearchState>(
+        bloc: _weatherSearchBloc,
         builder: (context, state) {
           return TextField(
             controller: textEditingController,
