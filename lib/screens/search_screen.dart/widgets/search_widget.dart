@@ -24,6 +24,12 @@ class _SearchWidgetState extends State<SearchWidget> {
   }
 
   @override
+  void dispose() {
+    _weatherSearchBloc.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.7,
@@ -36,6 +42,15 @@ class _SearchWidgetState extends State<SearchWidget> {
             hideOnLoading: true,
             hideOnEmpty: true,
             hideOnSelect: true,
+            decorationBuilder: (context, child) {
+              return Material(
+                type: MaterialType.transparency,
+                elevation: 4,
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.transparent,
+                child: child,
+              );
+            },
             suggestionsCallback: (search) =>
                 ApiSearchServices().fetchCitySuggestionData(search),
             builder: (context, controller, focusNode) {
@@ -45,12 +60,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                 autofocus: true,
                 decoration: InputDecoration(
                     suffixIcon: IconButton(
-                        onPressed: () {
-                          // context.read<WeatherSearchBloc>().add(
-                          //     FetchSearchWeatherEvent(
-                          //         controller.text.toString().trim()));
-                        },
-                        icon: const Icon(Icons.search)),
+                        onPressed: () {}, icon: const Icon(Icons.search)),
                     hintText: 'Enter Location to Search',
                     contentPadding: const EdgeInsets.all(12),
                     border: OutlineInputBorder(
@@ -72,6 +82,7 @@ class _SearchWidgetState extends State<SearchWidget> {
               context
                   .read<WeatherSearchBloc>()
                   .add(FetchSearchWeatherEvent(suggestion['name']));
+              controller.text = suggestion['name'];
             },
           );
         },
