@@ -33,6 +33,9 @@ class _SearchWidgetState extends State<SearchWidget> {
         bloc: _weatherSearchBloc,
         builder: (context, state) {
           return TypeAheadField(
+            hideOnLoading: true,
+            hideOnEmpty: true,
+            hideOnSelect: true,
             suggestionsCallback: (search) =>
                 ApiSearchServices().fetchCitySuggestionData(search),
             builder: (context, controller, focusNode) {
