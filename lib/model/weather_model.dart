@@ -49,7 +49,7 @@ class Current {
   double? windKph;
   int? windDegree;
   String? windDir;
-  int? pressureMb;
+  double? pressureMb;
   double? pressureIn;
   double? precipMm;
   double? precipIn;
@@ -63,14 +63,14 @@ class Current {
   double? heatindexF;
   double? dewpointC;
   double? dewpointF;
-  int? visKm;
-  int? visMiles;
-  int? uv;
+  double? visKm;
+  double? visMiles;
+  double? uv;
   double? gustMph;
   double? gustKph;
   int? timeEpoch;
   String? time;
-  int? snowCm;
+  double? snowCm;
   int? willItRain;
   int? chanceOfRain;
   int? willItSnow;
@@ -132,7 +132,7 @@ class Current {
         windKph: json["wind_kph"]?.toDouble(),
         windDegree: json["wind_degree"],
         windDir: json["wind_dir"],
-        pressureMb: json["pressure_mb"],
+        pressureMb: json["pressure_mb"]?.toDouble(),
         pressureIn: json["pressure_in"]?.toDouble(),
         precipMm: json["precip_mm"]?.toDouble(),
         precipIn: json["precip_in"]?.toDouble(),
@@ -146,14 +146,14 @@ class Current {
         heatindexF: json["heatindex_f"]?.toDouble(),
         dewpointC: json["dewpoint_c"]?.toDouble(),
         dewpointF: json["dewpoint_f"]?.toDouble(),
-        visKm: json["vis_km"],
-        visMiles: json["vis_miles"],
-        uv: json["uv"],
+        visKm: json["vis_km"]?.toDouble(),
+        visMiles: json["vis_miles"]?.toDouble(),
+        uv: json["uv"]?.toDouble(),
         gustMph: json["gust_mph"]?.toDouble(),
         gustKph: json["gust_kph"]?.toDouble(),
         timeEpoch: json["time_epoch"],
         time: json["time"],
-        snowCm: json["snow_cm"],
+        snowCm: json["snow_cm"]?.toDouble(),
         willItRain: json["will_it_rain"],
         chanceOfRain: json["chance_of_rain"],
         willItSnow: json["will_it_snow"],
@@ -331,7 +331,7 @@ class Astro {
 }
 
 class Day {
-  int? maxtempC;
+  double? maxtempC;
   double? maxtempF;
   double? mintempC;
   double? mintempF;
@@ -341,16 +341,16 @@ class Day {
   double? maxwindKph;
   double? totalprecipMm;
   double? totalprecipIn;
-  int? totalsnowCm;
+  double? totalsnowCm;
   double? avgvisKm;
-  int? avgvisMiles;
+  double? avgvisMiles;
   int? avghumidity;
   int? dailyWillItRain;
   int? dailyChanceOfRain;
   int? dailyWillItSnow;
   int? dailyChanceOfSnow;
   Condition? condition;
-  int? uv;
+  double? uv;
 
   Day({
     this.maxtempC,
@@ -376,7 +376,7 @@ class Day {
   });
 
   factory Day.fromJson(Map<String, dynamic> json) => Day(
-        maxtempC: json["maxtemp_c"],
+        maxtempC: json["maxtemp_c"]?.toDouble(),
         maxtempF: json["maxtemp_f"]?.toDouble(),
         mintempC: json["mintemp_c"]?.toDouble(),
         mintempF: json["mintemp_f"]?.toDouble(),
@@ -386,9 +386,9 @@ class Day {
         maxwindKph: json["maxwind_kph"]?.toDouble(),
         totalprecipMm: json["totalprecip_mm"]?.toDouble(),
         totalprecipIn: json["totalprecip_in"]?.toDouble(),
-        totalsnowCm: json["totalsnow_cm"],
+        totalsnowCm: json["totalsnow_cm"]?.toDouble(),
         avgvisKm: json["avgvis_km"]?.toDouble(),
-        avgvisMiles: json["avgvis_miles"],
+        avgvisMiles: json["avgvis_miles"]?.toDouble(),
         avghumidity: json["avghumidity"],
         dailyWillItRain: json["daily_will_it_rain"],
         dailyChanceOfRain: json["daily_chance_of_rain"],
@@ -397,7 +397,7 @@ class Day {
         condition: json["condition"] == null
             ? null
             : Condition.fromJson(json["condition"]),
-        uv: json["uv"],
+        uv: json["uv"]?.toDouble(),
       );
 
   Map<String, dynamic> toJson() => {

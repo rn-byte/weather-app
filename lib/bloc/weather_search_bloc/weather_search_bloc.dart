@@ -18,16 +18,20 @@ class WeatherSearchBloc extends Bloc<WeatherSearchEvent, WeatherSearchState> {
     emit(WeatherLoading());
     print('Event Location : ${event.location}');
 
-    await _apiSearchServices
-        .getSearchedWeatherdData(event.location)
-        .then((value) {
-      print(value);
-      emit(WeatherSuccess(WeatherModel.fromJson(jsonDecode(value.body))));
-    }).onError((error, stackTrace) {
-      print(stackTrace);
-      print(error);
-      emit(WeatherFailure(error.toString()));
-    });
+    if (event.location != '') {
+      await _apiSearchServices
+          .getSearchedWeatherdData(event.location)
+          .then((value) {
+        print(value);
+        emit(WeatherSuccess(WeatherModel.fromJson(jsonDecode(value.body))));
+      }).onError((error, stackTrace) {
+        print(stackTrace);
+        print(error);
+        emit(WeatherFailure(error.toString()));
+      });
+    } else {
+      emit(const WeatherFailure('Enter Location To Search'));
+    }
   }
 
   void _onSearchChange(

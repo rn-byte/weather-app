@@ -10,6 +10,7 @@ class TextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       txt,
+      textAlign: TextAlign.center,
       style: TextStyle(
         fontSize: fontSize,
         color: Colors.white,
