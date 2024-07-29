@@ -25,9 +25,7 @@ class MyApp extends StatelessWidget {
       home: FutureBuilder(
         future: _determinePosition(),
         builder: (context, snapshot) {
-          print('snap data ${snapshot.data}');
           if (snapshot.hasData) {
-            print('snap location data ${snapshot.data}');
             return BlocProvider<WeatherBloc>(
               create: (context) =>
                   WeatherBloc()..add(FetchWeather(snapshot.data as Position)),

@@ -26,6 +26,7 @@ class _SearchWidgetState extends State<SearchWidget> {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.7,
       child: BlocBuilder<WeatherSearchBloc, WeatherSearchState>(
+        buildWhen: (previous, current) => current.text != previous.text,
         bloc: _weatherSearchBloc,
         builder: (context, state) {
           return TextField(
@@ -45,6 +46,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                   borderSide: const BorderSide(color: Colors.transparent),
                   borderRadius: BorderRadius.circular(30),
                 )),
+            onChanged: (value) {
+              _weatherSearchBloc.add(SearchChangeEvent(value));
+            },
           );
         },
       ),

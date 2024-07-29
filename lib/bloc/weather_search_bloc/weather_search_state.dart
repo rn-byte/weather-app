@@ -1,9 +1,15 @@
 part of 'weather_search_bloc.dart';
 
 class WeatherSearchState extends Equatable {
-  const WeatherSearchState();
+  final String text;
+  const WeatherSearchState({this.text = ''});
+
+  WeatherSearchState copyWith({String? text}) {
+    return WeatherSearchState(text: text ?? this.text);
+  }
+
   @override
-  List<Object> get props => [];
+  List<Object> get props => [text];
 }
 
 class WeatherInitial extends WeatherSearchState {}

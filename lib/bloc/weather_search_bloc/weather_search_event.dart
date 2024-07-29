@@ -12,3 +12,18 @@ class FetchSearchWeatherEvent extends WeatherSearchEvent {
   @override
   List<Object> get props => [location];
 }
+
+class Fetch7daysForecast extends WeatherSearchEvent {
+  final String location;
+  const Fetch7daysForecast(this.location);
+  @override
+  List<Object> get props => [location];
+}
+
+final class SearchChangeEvent extends WeatherSearchEvent {
+  final String text;
+  const SearchChangeEvent(this.text);
+
+  @override
+  List<Object> get props => [text];
+}
