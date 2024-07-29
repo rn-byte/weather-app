@@ -161,12 +161,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                         '${state.weather.tempMin!.celsius!.round()} °C'),
                               ],
                             ),
-                            const SizedBox(
-                              height: 25,
-                            ),
-                            ButtonWidget(
-                              onPressed: () {},
-                            )
+                            // const SizedBox(
+                            //   height: 25,
+                            // ),
+                            // ButtonWidget(
+                            //   onPressed: () {
+                            //     Navigator.push(
+                            //         context,
+                            //         MaterialPageRoute(
+                            //           builder: (context) => WeekWeatherScreen(
+                            //               location: state.weather.areaName
+                            //                   .toString()),
+                            //         ));
+                            //   },
+                            // )
                           ],
                         ),
                       ),

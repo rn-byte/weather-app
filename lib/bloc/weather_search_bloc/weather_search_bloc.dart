@@ -12,22 +12,23 @@ class WeatherSearchBloc extends Bloc<WeatherSearchEvent, WeatherSearchState> {
   WeatherSearchBloc() : super(const WeatherSearchState()) {
     on<FetchSearchWeatherEvent>(_fetchSearchData);
     on<SearchChangeEvent>(_onSearchChange);
+    on<Fetch7daysForecastEvent>(_fetch7daysForecast);
   }
 
   Future<void> _fetchSearchData(
       FetchSearchWeatherEvent event, Emitter<WeatherSearchState> emit) async {
     emit(WeatherLoading());
-    print('Event Location : ${event.location}');
+    // print('Event Location : ${event.location}');
 
     if (event.location != '') {
       await _apiSearchServices
           .getSearchedWeatherdData(event.location)
           .then((value) {
-        print(value);
+        //print(value);
         emit(WeatherSuccess(WeatherModel.fromJson(jsonDecode(value.body))));
       }).onError((error, stackTrace) {
-        print(stackTrace);
-        print(error);
+        //print(stackTrace);
+        //print(error);
         emit(WeatherFailure(error.toString()));
       });
     } else {
@@ -41,6 +42,23 @@ class WeatherSearchBloc extends Bloc<WeatherSearchEvent, WeatherSearchState> {
       emit(state.copyWith(suggestionList: value));
     }).onError((error, stackTrace) {
       emit(const WeatherFailure('Location not found'));
+    });
+  }
+
+  Future<void> _fetch7daysForecast(
+      Fetch7daysForecastEvent event, Emitter<WeatherSearchState> emit) async {
+    emit(WeatherLoading());
+    // print('Event Location : ${event.location}');
+
+    await _apiSearchServices
+        .get7daysForecastdData(event.location)
+        .then((value) {
+      print(value.body);
+      emit(WeatherSuccess(WeatherModel.fromJson(jsonDecode(value.body))));
+    }).onError((error, stackTrace) {
+      print(stackTrace);
+      print(error);
+      emit(WeatherFailure(error.toString()));
     });
   }
 }

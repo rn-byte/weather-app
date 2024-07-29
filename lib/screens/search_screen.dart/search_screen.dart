@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/bloc/weather_search_bloc/weather_search_bloc.dart';
 import 'package:weather_app/model/weather_model.dart';
+import 'package:weather_app/screens/7days_weather_screen/7days_weather_screen.dart';
 import 'package:weather_app/screens/search_screen.dart/widgets/search_widget.dart';
 import 'package:weather_app/screens/search_screen.dart/widgets/weather_image_widget.dart';
 import '../home/widgets/widgets.dart';
@@ -194,7 +195,15 @@ class _SearchScreenState extends State<SearchScreen> {
                               ),
 
                               ButtonWidget(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => WeekWeatherScreen(
+                                          location: location.name!,
+                                        ),
+                                      ));
+                                },
                               )
                             ],
                           ),
