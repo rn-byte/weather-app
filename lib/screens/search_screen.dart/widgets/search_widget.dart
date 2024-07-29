@@ -51,8 +51,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                 child: child,
               );
             },
-            suggestionsCallback: (search) =>
-                ApiSearchServices().fetchCitySuggestionData(search),
+            suggestionsCallback: (search) async =>
+                await ApiSearchServices().fetchCitySuggestionData(search),
             builder: (context, controller, focusNode) {
               return TextField(
                 controller: controller,

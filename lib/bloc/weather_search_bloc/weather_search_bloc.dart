@@ -53,11 +53,11 @@ class WeatherSearchBloc extends Bloc<WeatherSearchEvent, WeatherSearchState> {
     await _apiSearchServices
         .get7daysForecastdData(event.location)
         .then((value) {
-      print(value.body);
+      //print(value.body);
       emit(WeatherSuccess(WeatherModel.fromJson(jsonDecode(value.body))));
     }).onError((error, stackTrace) {
-      print(stackTrace);
-      print(error);
+      // print(stackTrace);
+      // print(error);
       emit(WeatherFailure(error.toString()));
     });
   }
