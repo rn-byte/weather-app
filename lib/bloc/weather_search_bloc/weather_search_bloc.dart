@@ -7,6 +7,7 @@ part 'weather_search_event.dart';
 part 'weather_search_state.dart';
 
 class WeatherSearchBloc extends Bloc<WeatherSearchEvent, WeatherSearchState> {
+  final List<dynamic>? sugList = [];
   final ApiSearchServices _apiSearchServices = ApiSearchServices();
   WeatherSearchBloc() : super(const WeatherSearchState()) {
     on<FetchSearchWeatherEvent>(_fetchSearchData);
@@ -35,8 +36,11 @@ class WeatherSearchBloc extends Bloc<WeatherSearchEvent, WeatherSearchState> {
   }
 
   void _onSearchChange(
-      SearchChangeEvent event, Emitter<WeatherSearchState> emit) {
-    print(event.text);
-    emit(state.copyWith(text: event.text));
+      SearchChangeEvent event, Emitter<WeatherSearchState> emit) async {
+    await _apiSearchServices.fetchCitySuggestionData(event.stext).then((value) {
+      emit(state.copyWith(suggestionList: value));
+    }).onError((error, stackTrace) {
+      emit(const WeatherFailure('Location not found'));
+    });
   }
 }

@@ -2,14 +2,20 @@ part of 'weather_search_bloc.dart';
 
 class WeatherSearchState extends Equatable {
   final String text;
-  const WeatherSearchState({this.text = ''});
+  final List? suggestionList;
+  const WeatherSearchState({
+    this.suggestionList,
+    this.text = '',
+  });
 
-  WeatherSearchState copyWith({String? text}) {
-    return WeatherSearchState(text: text ?? this.text);
+  WeatherSearchState copyWith({List? suggestionList, String? text}) {
+    return WeatherSearchState(
+        suggestionList: suggestionList ?? this.suggestionList,
+        text: text ?? this.text);
   }
 
   @override
-  List<Object> get props => [text];
+  List<Object?> get props => [suggestionList, text];
 }
 
 class WeatherInitial extends WeatherSearchState {}

@@ -21,9 +21,9 @@ class Fetch7daysForecast extends WeatherSearchEvent {
 }
 
 final class SearchChangeEvent extends WeatherSearchEvent {
-  final String text;
-  const SearchChangeEvent(this.text);
+  final String stext;
+  const SearchChangeEvent(this.stext);
 
   @override
-  List<Object> get props => [text];
+  List<Object> get props => [stext];
 }
