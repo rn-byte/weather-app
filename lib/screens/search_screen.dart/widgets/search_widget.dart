@@ -44,10 +44,11 @@ class _SearchWidgetState extends State<SearchWidget> {
             hideOnSelect: true,
             decorationBuilder: (context, child) {
               return Material(
-                type: MaterialType.transparency,
+                type: MaterialType.canvas,
                 elevation: 4,
                 borderRadius: BorderRadius.circular(8),
-                color: Colors.transparent,
+                color: const Color.fromARGB(108, 15, 5, 0),
+                shadowColor: const Color.fromARGB(255, 117, 37, 5),
                 child: child,
               );
             },

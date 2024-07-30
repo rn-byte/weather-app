@@ -68,17 +68,17 @@ class _WeekWeatherScreenState extends State<WeekWeatherScreen> {
                       child: ListTile(
                         leading: Image.asset('assets/icons/cloudy.png'),
                         title: Text(
-                          "${DateFormat('EEEE dd ').format(data![index].date!)}\n${data[index].day!.avgtempC!.round()} °C",
+                          "${DateFormat('EEEE , MMMM d ').format(data![index].date!)}\n${data[index].day!.avgtempC!.round()} °C",
                           style: const TextStyle(
-                              fontSize: 23, fontWeight: FontWeight.w500),
+                              fontSize: 19, fontWeight: FontWeight.w500),
                         ),
                         subtitle: Text(
                           data[index].day!.condition!.text.toString(),
                           style: const TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w500),
+                              fontSize: 18, fontWeight: FontWeight.w500),
                         ),
                         trailing: Text(
-                          "Max : ${data[index].day!.maxtempC!} °C \nMan : ${data[index].day!.mintempC!} °C",
+                          "Max : ${data[index].day!.maxtempC!} °C \nMin : ${data[index].day!.mintempC!} °C",
                           style: const TextStyle(
                               fontSize: 18, fontWeight: FontWeight.w500),
                         ),

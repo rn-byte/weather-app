@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:weather_app/Services/date_parsing/date_parse.dart';
 import 'package:weather_app/bloc/weather_search_bloc/weather_search_bloc.dart';
 import 'package:weather_app/model/weather_model.dart';
 import 'package:weather_app/screens/7days_weather_screen/7days_weather_screen.dart';
@@ -103,13 +104,11 @@ class _SearchScreenState extends State<SearchScreen> {
                                 height: 8,
                               ),
                               TextWidget(
-                                  txt: DateTime.parse((location.localtime)!
-                                                  .replaceFirst(' ', 'T'))
+                                  txt: DateParse.parseDate(location.localtime!)
                                               .hour <
                                           12
                                       ? 'Morning'
-                                      : DateTime.parse((location.localtime)!
-                                                      .replaceFirst(' ', 'T'))
+                                      : DateParse.parseDate(location.localtime!)
                                                   .hour <
                                               18
                                           ? 'Afternoon'
@@ -141,9 +140,8 @@ class _SearchScreenState extends State<SearchScreen> {
                                 child: TextWidget(
                                     txt: DateFormat('EEEE dd ,')
                                         .add_jm()
-                                        .format(DateTime.parse(
-                                            (current.lastUpdated)!
-                                                .replaceFirst(' ', 'T'))),
+                                        .format(DateParse.parseDate(
+                                            current.lastUpdated!)),
                                     // 'Friday 16, 09:41 am',
                                     fontSize: 16,
                                     fw: FontWeight.w300),

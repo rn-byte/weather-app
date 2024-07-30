@@ -46,12 +46,12 @@ class _SearchedWeatherImageWidgetState
         return Image.asset('assets/images/4.png', scale: 2);
       case 1006:
       case 1031:
+      case 1030:
         return Image.asset('assets/images/5.png', scale: 2);
       case 1000:
-      case 1003:
         return Image.asset('assets/images/6.png', scale: 2);
       case 1009:
-      case 1030:
+      case 1003:
         return Image.asset('assets/images/7.png', scale: 2);
       default:
         return Image.asset(
