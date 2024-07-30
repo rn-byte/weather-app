@@ -11,13 +11,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    //   Timer(
-    //       const Duration(seconds: 3),
-    //       () => Navigator.pushReplacement(
-    //           context,
-    //           MaterialPageRoute(
-    //             builder: (context) => const HomeScreen(),
-    //           )));
   }
 
   @override
@@ -29,18 +22,18 @@ class _SplashScreenState extends State<SplashScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.08,
+              height: MediaQuery.of(context).size.height * 0.1,
             ),
             Image.asset(
               'assets/icons/cloudy.png',
               scale: 3,
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.5,
+              height: MediaQuery.of(context).size.height * 0.4,
             ),
             Text(
               'Weather App',
-              style: Theme.of(context).textTheme.displayMedium,
+              style: Theme.of(context).textTheme.displaySmall,
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,

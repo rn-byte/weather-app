@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: TextWidget(
                                   txt:
                                       '${state.weather.temperature!.celsius!.round()} °C',
-                                  fontSize: 55,
+                                  fontSize: 50,
                                   fw: FontWeight.w600),
                             ),
                             Center(
@@ -166,20 +166,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                         '${state.weather.tempMin!.celsius!.round()} °C'),
                               ],
                             ),
-                            // const SizedBox(
-                            //   height: 25,
-                            // ),
-                            // ButtonWidget(
-                            //   onPressed: () {
-                            //     Navigator.push(
-                            //         context,
-                            //         MaterialPageRoute(
-                            //           builder: (context) => WeekWeatherScreen(
-                            //               location: state.weather.areaName
-                            //                   .toString()),
-                            //         ));
-                            //   },
-                            // )
                           ],
                         ),
                       ),
