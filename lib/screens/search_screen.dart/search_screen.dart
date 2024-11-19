@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:weather_app/Services/date_parsing/date_parse.dart';
 import 'package:weather_app/bloc/weather_search_bloc/weather_search_bloc.dart';
 import 'package:weather_app/model/weather_model.dart';
-import 'package:weather_app/screens/7days_weather_screen/7days_weather_screen.dart';
+import 'package:weather_app/screens/7days_weather_screen/seven_days_weather_screen.dart';
 import 'package:weather_app/screens/search_screen.dart/widgets/search_widget.dart';
 import 'package:weather_app/screens/search_screen.dart/widgets/weather_image_widget.dart';
 import '../home/widgets/widgets.dart';
